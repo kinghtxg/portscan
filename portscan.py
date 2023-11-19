@@ -126,7 +126,10 @@ def portscan(ip, ports, protocol, rate):
         t.join()
     print("\nScan completed!")
     for port in open_ports:
-        print(f"[+] open port:{port} server:{port_server[port]}")
+        if port in keys:
+            print(f"[+] open port:{port} server:{port_server[port]}")
+        else:
+            print(f"[+] open port:{port}")
 
 def parse_ports(port_string):
     if "-" in port_string:
